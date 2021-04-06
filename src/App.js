@@ -24,10 +24,20 @@ function App() {
     console.log("tours: ", tours);
   };
 
+  // UseEffect Hook
   useEffect(() => {
     getTours();
   }, []);
 
+  // Removing item from list
+  const removeTour = (id) => {
+    const newToursList = tours.filter((tour) => {
+      return tour.id != id;
+    });
+    setTours(newToursList);
+  };
+
+  // *************** Returning Components ****************
   // if loading is true then loading will visible
   if (isLoading) {
     return (
@@ -37,10 +47,27 @@ function App() {
     );
   }
 
+  // Returning refresh button if tours is empty by removing
+  if (tours.length === 0) {
+    return (
+      <div className="refreshToursDiv">
+        <h2>No Tours Left</h2>
+        <button
+          type="button"
+          onClick={() => {
+            getTours();
+          }}
+        >
+          Refresh
+        </button>
+      </div>
+    );
+  }
+
   // Returning all the tours list
   return (
     <main>
-      <Tours tours={tours} />
+      <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
 }

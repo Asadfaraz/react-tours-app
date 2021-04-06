@@ -41,6 +41,9 @@ section p {
   color: blueviolet;
   cursor: pointer;
 }
+.rmorebtn:hover {
+  color: rgb(112, 11, 206);
+}
 
 .heading {
   display: flex;
@@ -63,6 +66,7 @@ section p {
   color: blueviolet;
   padding: 5px 10px;
   background-color: rgb(237, 228, 245);
+  letter-spacing: 1px;
 }
 
 .btn {
@@ -76,6 +80,7 @@ section p {
   border: 1px solid brown;
   border-radius: 3px;
   background: none;
+  cursor: pointer;
 }
 .btn:hover {
   color: red;

@@ -3,7 +3,8 @@ import classes from "./tour.module.css";
 
 const Tour = (props) => {
   //   destructuring props
-  const { image, info, name, price } = props.tour;
+  const { id, image, info, name, price } = props.tour;
+  const removeTour = props.removeTour;
 
   // usestate for read more button
   const [readMore, setReadMore] = React.useState(true);
@@ -30,7 +31,13 @@ const Tour = (props) => {
             </button>
           </p>
         </section>
-        <button type="button" className={classes.btn}>
+        <button
+          type="button"
+          className={classes.btn}
+          onClick={() => {
+            removeTour(id);
+          }}
+        >
           Not Interested
         </button>
       </article>
